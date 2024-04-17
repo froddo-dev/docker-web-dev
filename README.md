@@ -64,5 +64,5 @@ docker-compose logs -f
 ## Notas:
 - Las contraseñas, usuarios, puertos y otras opciones se pueden configurar modificando el archivo docker-compose.yml. 
 - Carga del módulo mod_rewrite: 
-  LoadModule rewrite_module modules/mod_rewrite.so se añade para activar el módulo mod_rewrite de Apache en el archivo apache.conf, necesario para el funcionamiento de ciertas reglas en el archivo .htaccess.
+  - LoadModule rewrite_module modules/mod_rewrite.so se añade para activar el módulo mod_rewrite de Apache en el archivo apache.conf, necesario para el funcionamiento de ciertas reglas en el archivo .htaccess.
 - Con este repositorio y los comandos mencionados, puedes crear y administrar de manera eficiente tu entorno de desarrollo local utilizando Docker Compose.
