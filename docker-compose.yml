@@ -1,0 +1,38 @@
+version: "3.8"
+services:
+    mariadb:
+        image: mariadb
+        ports: 
+            - "3306:3306"
+        environment:
+            MYSQL_DATABASE: developerdb
+            MYSQL_ROOT_USER: root
+            MYSQL_PASSWORD: developer
+            MYSQL_ROOT_PASSWORD: developer 
+        volumes:
+            - ./configs/databases:/var/lib/mysql
+        networks:
+            - developer-network
+    apache:
+        image: php:8.0-apache
+        ports:
+            - "8080:80"
+        volumes:
+            - ./configs/public_html:/var/www/html
+        depends_on:
+            - mariadb
+        networks:
+            - developer-network
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        ports:
+            - "8081:80"
+        environment:
+            - PMA_HOST=mariadb
+        networks:
+            - developer-network
+
+networks:
+  developer-network:
+    driver: bridge
