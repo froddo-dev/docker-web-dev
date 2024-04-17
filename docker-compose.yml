@@ -19,6 +19,7 @@ services:
             - "8080:80"
         volumes:
             - ./configs/public_html:/var/www/html
+            - ./configs/apache.conf:/etc/apache2/conf-available/apache.conf
         depends_on:
             - mariadb
         networks:
